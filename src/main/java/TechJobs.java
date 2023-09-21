@@ -10,7 +10,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -112,7 +112,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -125,23 +125,21 @@ public class TechJobs {
         // a nested loop to loop over each HashMap. If a new field is added to the job
         // records, this approach will print out the new field without any updates to
         // printJobs.
-        while (true) {
-            boolean foundSearchTerm = false;
 
-            for (HashMap<String, String> job : someJobs) {
-                System.out.println("*****");
-                for (Map.Entry<String, String> entry : job.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-                    System.out.println(key + ": " + value);
-                }
-                System.out.println("*****\n");
+        for (HashMap<String, String> job : someJobs) {
+            System.out.println("\n*****");
+            for (Map.Entry<String, String> entry : job.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                System.out.println(key + ": " + value);
             }
-
-            if (!foundSearchTerm) {
-                System.out.println("No Results");
-                break;
-            }
+            System.out.println("*****");
+        }
+        if (someJobs.isEmpty()) {
+            System.out.print("No Results");
         }
     }
 }
+// having trouble on figuring out where to put the if
+// statement. It executes regardless
+//formatting issues with No Results (has a space)
